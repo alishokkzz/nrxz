@@ -1,6 +1,7 @@
-*,
-*::before,
-*::after {
+/* ==========================================
+   1. БАЗОВЫЕ СТИЛИ И СБРОС
+   ========================================== */
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -8,15 +9,15 @@
 
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    color: #1a1a1a;
-    background-color: #f4f5f7;
+    color: #111111;
+    background-color: #ffffff;
     line-height: 1.6;
 }
 
 .container {
-    max-width: 1152px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
 }
 
 a {
@@ -27,285 +28,351 @@ a {
 ul {
     list-style: none;
 }
-.site-header {
+
+/* ==========================================
+   2. ШАПКА И БУРГЕР-МЕНЮ (Через :checked)
+   ========================================== */
+.header {
     background-color: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e5e5e5;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
-.site-header__inner {
+.header-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
-    max-width: 1152px;
-    margin: 0 auto;
-    padding: 0 24px;
+    height: 75px;
 }
 
 .logo {
-    font-size: 1.25rem;
-    font-weight: 800;
+    font-size: 1.5rem;
+    font-weight: 900;
     letter-spacing: -0.5px;
-    color: #0f172a;
 }
 
-.nav-menu ul {
+.logo span {
+    color: #e63946;
+}
+
+/* Скрываем чекбокс бургера */
+.burger-checkbox {
+    display: none;
+}
+
+/* Иконка бургера */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.burger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #111111;
+    transition: 0.3s;
+}
+
+.nav-list {
     display: flex;
-    gap: 32px;
+    gap: 30px;
 }
 
-.nav-menu a {
+.nav-link {
     font-weight: 600;
     font-size: 0.95rem;
-    color: #64748b;
+    color: #666666;
     transition: color 0.2s;
 }
 
-.nav-menu a:hover,
-.nav-menu a.active {
-    color: #ef4444;
+.nav-link:hover,
+.nav-link.active {
+    color: #111111;
 }
 
-.burger-menu {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-}
+/* ==========================================
+   3. УНИКАЛЬНЫЕ СЕКЦИИ СТРАНИЦЫ STORES
+   ========================================== */
 
-.burger-menu span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: #0f172a;
-}
-.store-intro-section {
-    background-color: #0f172a;
-    color: #ffffff;
-    padding: 60px 0;
+/* Секция 1: Hero */
+.hero-stores {
+    background-color: #f8f9fa;
+    padding: 80px 0;
     text-align: center;
+    border-bottom: 1px solid #e5e5e5;
 }
 
-.store-intro-section h2 {
-    font-size: 2.25rem;
-    font-weight: 800;
-    margin-bottom: 12px;
-}
-
-.store-intro-section p {
-    color: #94a3b8;
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: 1.05rem;
-}
-.store-branches-section {
-    padding: 60px 0;
-    background-color: #ffffff;
-}
-
-.store-branches-section h3 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-}
-
-.branches-grid {
-    display: flex;
-    gap: 24px;
-}
-
-.branch-card {
-    flex: 1;
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.branch-card header h4 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #0f172a;
-}
-
-.branch-card__body p {
-    font-size: 0.95rem;
-    color: #475569;
-    margin-bottom: 8px;
-}
-
-.status-badge {
+.badge {
     display: inline-block;
-    margin-top: 12px;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    padding: 4px 8px;
-    border-radius: 4px;
-}
-
-.status-badge.open {
-    background-color: #dcfce7;
-    color: #166534;
-}
-
-.status-badge.closed {
-    background-color: #fee2e2;
-    color: #991b1b;
-}
-
-.pickup-info-section {
-    padding: 60px 0;
-    background-color: #f8fafc;
-    border-top: 1px solid #e2e8f0;
-}
-
-.pickup-split {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.pickup-text-block {
-    flex: 1;
-}
-
-.pickup-text-block h3 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: #0f172a;
-}
-
-.pickup-text-block p {
-    color: #475569;
-    margin-bottom: 16px;
-}
-
-.pickup-text-block ul li {
-    position: relative;
-    padding-left: 20px;
-    color: #334155;
-    margin-bottom: 8px;
-}
-
-.pickup-text-block ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #ef4444;
-    font-weight: bold;
-}
-
-.pickup-visual-block {
-    flex: 1;
-}
-
-.visual-box {
-    background-color: #e2e8f0;
-    border: 2px dashed #cbd5e1;
-    height: 220px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #64748b;
-    font-weight: 600;
-}
-.site-footer {
-    background-color: #0f172a;
+    letter-spacing: 1px;
+    background-color: #111111;
     color: #ffffff;
-    padding: 60px 0 24px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-bottom: 15px;
 }
 
-.footer-grid {
+.hero-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #666666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Секция 2: Города и скролл карточек магазинов */
+.section {
+    padding: 70px 0;
+}
+
+.section-light {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e5e5e5;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 35px;
+}
+
+.city-block {
+    margin-bottom: 45px;
+}
+
+.city-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #111;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Контейнер горизонтальной прокрутки */
+.stores-scroll {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    scroll-snap-type: x mandatory;
+}
+
+.store-card {
+    min-width: 330px;
+    max-width: 330px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+}
+
+.store-img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.store-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.store-body h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.store-body p {
+    font-size: 0.9rem;
+    color: #666666;
+}
+
+.status {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+    width: fit-content;
+}
+
+.status.open {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.status.closed {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+/* Секция 3: Галерея */
+.gallery-grid {
+    display: flex;
+    gap: 20px;
+    height: 420px;
+}
+
+.gallery-item {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.gallery-item.large {
+    flex: 2;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================
+   4. ПОДВАЛ
+   ================================---------- */
+.footer {
+    background-color: #111111;
+    color: #ffffff;
+    padding: 70px 0 25px;
+}
+
+.footer-inner {
     display: flex;
     justify-content: space-between;
-    gap: 30px;
-    margin-bottom: 40px;
+    gap: 40px;
+    margin-bottom: 50px;
 }
 
 .footer-col {
     flex: 1;
 }
 
-.footer-col h5 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 16px;
-    color: #ef4444;
+.footer-col .logo {
+    margin-bottom: 12px;
 }
 
-.footer-col p, 
-.footer-col li a {
-    color: #94a3b8;
+.footer-col p {
+    color: #aaaaaa;
     font-size: 0.9rem;
     margin-bottom: 8px;
-    display: block;
 }
 
-.footer-col li a:hover {
+.footer-title {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.footer-col a {
+    color: #aaaaaa;
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
     color: #ffffff;
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 24px;
-    border-top: 1px solid #1e293b;
-    color: #64748b;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #777777;
     font-size: 0.85rem;
 }
 
-/* Tablet view (768px to 1024px) */
+/* ==========================================
+   5. АДАПТИВНОСТЬ (Медиа-запросы)
+   ================================---------- */
+
+/* Планшеты (от 768px до 1024px) */
 @media (max-width: 1024px) {
-    .branches-grid {
+    .gallery-grid {
         flex-direction: column;
+        height: auto;
     }
-    
-    .pickup-split {
-        flex-direction: column;
-    }
-
-    .footer-grid {
-        flex-wrap: wrap;
-    }
-
-    .footer-col {
-        flex: 45%;
-        margin-bottom: 24px;
+    .gallery-item, .gallery-item.large {
+        height: 250px;
     }
 }
 
-/* Mobile view (Up to 767px) */
+/* Мобильные устройства (до 767px) */
 @media (max-width: 767px) {
-    .nav-menu {
-        display: none; /* Managed via JS mobile toggle in your full layout */
+    .burger {
+        display: flex; /* Показываем иконку бургера на мобилках */
     }
 
-    .burger-menu {
-        display: flex;
+    /* Меню скрыто по умолчанию и открывается через чекбокс */
+    .nav {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 20px 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
 
-    .store-intro-section h2 {
-        font-size: 1.8rem;
-    }
-
-    .footer-grid {
+    .nav-list {
         flex-direction: column;
+        gap: 16px;
     }
 
-    .footer-col {
-        flex: 100%;
+    /* Магия чистого CSS: если чекбокс отмечен, показываем блок .nav */
+    .burger-checkbox:checked ~ .nav {
+        display: block;
+    }
+
+    /* Анимация крестика для бургера при клике */
+    .burger-checkbox:checked ~ .burger span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .burger-checkbox:checked ~ .burger span:nth-child(2) {
+        opacity: 0;
+    }
+    .burger-checkbox:checked ~ .burger span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 30px;
     }
 }
