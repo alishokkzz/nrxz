@@ -1,157 +1,152 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Адаптив для мобильных устройств -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазины — Nrxz Clothes Store</title>
+    <title>Stores - Nrxz Clothes Store</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- ===== ШАПКА (одинаковая на всех страницах) ===== -->
-    <header class="header">
-        <div class="container header-inner">
-            <a href="index.html" class="logo">NRXZ<span>.</span></a>
-
-            <!-- Чекбокс и метка для работы бургер-меню без JavaScript -->
-            <input type="checkbox" id="burger" class="burger-checkbox">
-            <label for="burger" class="burger" aria-label="Меню">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a href="index.html" class="logo">NRXZ</a>
+            
             <!-- Навигационное меню -->
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Главная</a></li>
-                    <li><a href="services.html" class="nav-link">Услуги</a></li>
-                    <li><a href="stores.html" class="nav-link active">Магазины</a></li>
-                    <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+            <nav aria-label="Main" class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="stores.html" class="active">Stores</a></li>
+                    <li><a href="contacts.html">Contacts</a></li>
                 </ul>
             </nav>
+
+            <!-- Кнопка бургер-меню для мобильных устройств -->
+            <button class="burger-menu" id="burgerBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main>
-        <!-- ===== СЕКЦИЯ 1: Главный экран (Hero) для страницы магазинов ===== -->
-        <section class="hero-stores">
+        <!-- Секция 1 -->
+        <section class="store-intro-section">
             <div class="container">
-                <span class="badge">Официальный мерч Университета Нархоз</span>
-                <h1 class="hero-title">Наши магазины и хабы</h1>
-                <p class="hero-subtitle">Примеряйте новые коллекции и забирайте заказы в фирменных пространствах Алматы и Астаны.</p>
+                <h2>Our Retail Locations</h2>
+                <p>Visit the official merchandising outlets of Narxoz University across Almaty and Astana to explore our apparel lines in person.</p>
             </div>
         </section>
 
-        <!-- ===== СЕКЦИЯ 2: Список магазинов по городам (Горизонтальный скролл) ===== -->
-        <section class="section">
+        <!-- Секция 2 -->
+        <section class="store-branches-section">
             <div class="container">
-                <h2 class="section-title">Адреса магазинов</h2>
+                <h3>Campus & City Branches</h3>
+                
+                <div class="branches-grid">
+                    <article class="branch-card">
+                        <header>
+                            <h4>Main Campus Flagship</h4>
+                        </header>
+                        <div class="branch-card__body">
+                            <p><strong>Address:</strong> 55 Zhandosov St, Almaty</p>
+                            <p><strong>Hours:</strong> Mon–Fri: 9:00 AM – 7:00 PM</p>
+                            <span class="status-badge open">Open Now</span>
+                        </div>
+                    </article>
 
-                <!-- Город Алматы -->
-                <div class="city-block">
-                    <h3 class="city-title">Алматы</h3>
-                    <div class="stores-scroll">
-                        <article class="store-card">
-                            <img src="https://images.unsplash.com/photo-1555529771-835f59fc5efe?w=600&auto=format&fit=crop&q=60" alt="Главный кампус Нархоз" class="store-img">
-                            <div class="store-body">
-                                <h4>Главный кампус Нархоз</h4>
-                                <p>ул. Жандосова, 55, Главный корпус</p>
-                                <span class="status open">Открыто</span>
-                            </div>
-                        </article>
+                    <article class="branch-card">
+                        <header>
+                            <h4>Student Center Hub</h4>
+                        </header>
+                        <div class="branch-card__body">
+                            <p><strong>Address:</strong> 55 Zhandosov St, Block B</p>
+                            <p><strong>Hours:</strong> Mon–Sat: 10:00 AM – 8:00 PM</p>
+                            <span class="status-badge open">Open Now</span>
+                        </div>
+                    </article>
 
-                        <article class="store-card">
-                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&auto=format&fit=crop&q=60" alt="Студенческий центр" class="store-img">
-                            <div class="store-body">
-                                <h4>Студенческий центр</h4>
-                                <p>ул. Жандосова, 55, Блок B</p>
-                                <span class="status open">Открыто</span>
-                            </div>
-                        </article>
-
-                        <article class="store-card">
-                            <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&auto=format&fit=crop&q=60" alt="Dostyk Hub" class="store-img">
-                            <div class="store-body">
-                                <h4>Dostyk Hub</h4>
-                                <p>пр. Достык, 111</p>
-                                <span class="status closed">Закрыто</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- Город Астана -->
-                <div class="city-block">
-                    <h3 class="city-title">Астана</h3>
-                    <div class="stores-scroll">
-                        <article class="store-card">
-                            <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=600&auto=format&fit=crop&q=60" alt="Expo Mall" class="store-img">
-                            <div class="store-body">
-                                <h4>Expo Mall Showroom</h4>
-                                <p>пр. Мангилик Ел, 53</p>
-                                <span class="status open">Открыто</span>
-                            </div>
-                        </article>
-
-                        <article class="store-card">
-                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&auto=format&fit=crop&q=60" alt="Left Bank Showroom" class="store-img">
-                            <div class="store-body">
-                                <h4>Left Bank Showroom</h4>
-                                <p>ул. Достык, 12</p>
-                                <span class="status open">Открыто</span>
-                            </div>
-                        </article>
-                    </div>
+                    <article class="branch-card">
+                        <header>
+                            <h4>Astana Expo Showroom</h4>
+                        </header>
+                        <div class="branch-card__body">
+                            <p><strong>Address:</strong> 53 Mangilik El Ave, Astana</p>
+                            <p><strong>Hours:</strong> Mon–Sun: 10:00 AM – 10:00 PM</p>
+                            <span class="status-badge closed">Closed</span>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- ===== СЕКЦИЯ 3: Галерея главного магазина ===== -->
-        <section class="section section-light">
-            <div class="container">
-                <h2 class="section-title">Галерея флагманского магазина</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item large">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1000&auto=format&fit=crop&q=80" alt="Интерьер магазина">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1555529771-835f59fc5efe?w=600&auto=format&fit=crop&q=80" alt="Стойка мерча">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&auto=format&fit=crop&q=80" alt="Примерочная">
+        <!-- Секция 3 -->
+        <section class="pickup-info-section">
+            <div class="container pickup-split">
+                <div class="pickup-text-block">
+                    <h3>In-Store Pickup Guidelines</h3>
+                    <p>Ordered your university merch online? You can select any of our physical branches for free same-day pickup. Bring your student ID or order confirmation email to the counter.</p>
+                    <ul>
+                        <li>Instant size and color exchanges available</li>
+                        <li>Exclusive campus-only seasonal drops</li>
+                    </ul>
+                </div>
+                <div class="pickup-visual-block">
+                    <div class="visual-box">
+                        <p>📍 Store Locator & Support Desk</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ===== ПОДВАЛ (одинаковый на всех страницах) ===== -->
-    <footer class="footer">
-        <div class="container footer-inner">
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
             <div class="footer-col">
-                <p class="logo">NRXZ<span>.</span></p>
-                <p>Официальный мерч и магазин одежды Университета Нархоз.</p>
+                <h5>Nrxz Clothes Store</h5>
+                <p>Official merchandise store of Narxoz University.</p>
             </div>
             <div class="footer-col">
-                <h4 class="footer-title">Страницы</h4>
-                <a href="index.html">Главная</a>
-                <a href="services.html">Услуги</a>
-                <a href="stores.html">Магазины</a>
-                <a href="contacts.html">Контакты</a>
+                <h5>Pages</h5>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="stores.html">Stores</a></li>
+                    <li><a href="contacts.html">Contacts</a></li>
+                </ul>
             </div>
             <div class="footer-col">
-                <h4 class="footer-title">Социальные сети</h4>
-                <a href="#">Instagram</a>
-                <a href="#">Telegram</a>
-                <a href="#">TikTok</a>
+                <h5>Social Media</h5>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Telegram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Contacts</h5>
+                <p>Email: store@narxoz.kz</p>
+                <p>Phone: +7 (727) 377-1120</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Nrxz Clothes Store. Все права защищены.</p>
+            <p>&copy; 2026 Nrxz Clothes Store. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Простой JS для открытия мобильного меню -->
+    <script>
+        const burgerBtn = document.getElementById('burgerBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        burgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
